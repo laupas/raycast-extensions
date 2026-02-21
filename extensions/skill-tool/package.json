@@ -1,0 +1,88 @@
+{
+  "$schema": "https://www.raycast.com/schemas/extension.json",
+  "name": "skill-tool",
+  "title": "Skill Tool",
+  "description": "Discover, preview, and download AI skills from GitHub repositories or local folders. Manage your skill collection and easily find the right skill for any task.",
+  "icon": "extension-icon.png",
+  "author": "pascal_lauener",
+  "platforms": [
+    "macOS",
+    "Windows"
+  ],
+  "categories": [
+    "Productivity"
+  ],
+  "license": "MIT",
+  "commands": [
+    {
+      "name": "list-skills",
+      "title": "List Skills",
+      "description": "Browse all available skills from configured directories",
+      "mode": "view"
+    },
+    {
+      "name": "find-and-download-skills",
+      "title": "Find and Download Skills",
+      "description": "Search and download skills from configured repositories",
+      "mode": "view"
+    }
+  ],
+  "tools": [
+    {
+      "name": "skill-tool",
+      "title": "Skill Tool",
+      "description": "search and return a skill by name or description from configured skill directories"
+    }
+  ],
+  "preferences": [
+    {
+      "name": "skillFolders",
+      "type": "textfield",
+      "title": "Skill Folders",
+      "description": "Comma-separated list of folders containing skills (supports ~ for home directory)",
+      "placeholder": "~/.skills, ~/work/skills, /optional/absolute/path",
+      "default": "",
+      "required": false
+    },
+    {
+      "name": "skillRepositories",
+      "type": "textfield",
+      "title": "Skill Repositories",
+      "description": "Comma-separated list of GitHub repositories to search for downloadable skills",
+      "placeholder": "https://github.com/anthropics/skills, https://github.com/custom/repo",
+      "default": "https://github.com/anthropics/skills,https://github.com/ComposioHQ/awesome-claude-skills",
+      "required": false
+    },
+    {
+      "name": "githubToken",
+      "type": "password",
+      "title": "GitHub Personal Access Token (Optional)",
+      "description": "Provide a GitHub token to increase API rate limits (5000 req/hour vs 60). Create one at https://github.com/settings/tokens with 'repo' scope",
+      "placeholder": "ghp_...",
+      "default": "",
+      "required": false
+    }
+  ],
+  "dependencies": {
+    "@raycast/api": "^1.104.6",
+    "@raycast/utils": "^1.17.0",
+    "js-yaml": "^4.1.1"
+  },
+  "devDependencies": {
+    "@raycast/eslint-config": "^2.0.4",
+    "@types/js-yaml": "^4.0.9",
+    "@types/node": "22.13.10",
+    "@types/react": "19.0.10",
+    "eslint": "^9.22.0",
+    "prettier": "^3.5.3",
+    "typescript": "^5.8.2"
+  },
+  "scripts": {
+    "build": "ray build",
+    "dev": "ray develop",
+    "fix-lint": "ray lint --fix",
+    "lint": "ray lint",
+    "prepublishOnly": "echo \"\\n\\nIt seems like you are trying to publish the Raycast extension to npm.\\n\\nIf you did intend to publish it to npm, remove the \\`prepublishOnly\\` script and rerun \\`npm publish\\` again.\\nIf you wanted to publish it to the Raycast Store instead, use \\`npm run publish\\` instead.\\n\\n\" && exit 1",
+    "publish": "npx @raycast/api@latest publish"
+  }
+}
