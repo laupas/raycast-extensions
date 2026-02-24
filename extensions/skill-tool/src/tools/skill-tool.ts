@@ -1,3 +1,4 @@
+import * as fs from "fs";
 import { findSkillsWithAI } from "../find-skills";
 import { getAllSkillFolders, ensureDefaultSkillFolder } from "../config";
 
@@ -10,6 +11,9 @@ interface ToolResult {
     name: string;
     description: string;
     license?: string;
+    content?: string;
+    folder?: string;
+    filePath?: string;
     compatibility?: string;
   }>;
   count: number;
@@ -23,12 +27,28 @@ export default async function (input: Input): Promise<string> {
     const matchingSkills = await findSkillsWithAI(folders, input.query);
 
     const result: ToolResult = {
-      skills: matchingSkills.map((skill) => ({
-        name: skill.name,
-        description: skill.description,
-        ...(skill.license && { license: skill.license }),
-        ...(skill.compatibility && { compatibility: skill.compatibility }),
-      })),
+      skills: matchingSkills.map((skill) => {
+        // Safely read SKILL.md content when available so callers get full markdown
+        let content = "";
+        try {
+          if (skill.filePath && fs.existsSync(skill.filePath)) {
+            content = fs.readFileSync(skill.filePath, "utf-8");
+          }
+        } catch {
+          // Ignore read errors and return empty content
+          content = "";
+        }
+
+        return {
+          name: skill.name,
+          description: skill.description,
+          ...(skill.license && { license: skill.license }),
+          ...(skill.compatibility && { compatibility: skill.compatibility }),
+          content,
+          ...(skill.folder && { folder: skill.folder }),
+          ...(skill.filePath && { filePath: skill.filePath }),
+        };
+      }),
       count: matchingSkills.length,
       message:
         matchingSkills.length === 0
