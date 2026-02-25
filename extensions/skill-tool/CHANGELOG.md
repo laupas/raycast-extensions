@@ -1,6 +1,6 @@
 # skill tool Changelog
 
-## [v1.2.0] - 2026-02-21
+## [v1.2.0] - {PR_MERGE_DATE}
 
 ### Added
 
