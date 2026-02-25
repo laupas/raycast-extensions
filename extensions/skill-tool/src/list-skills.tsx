@@ -1,7 +1,5 @@
-import { List, ActionPanel, Action, showToast, Toast, confirmAlert, Alert } from "@raycast/api";
-import * as fs from "fs";
+import { List, ActionPanel, Action, showToast, Toast, confirmAlert, Alert, trash } from "@raycast/api";
 import * as path from "path";
-import { execSync } from "child_process";
 import { useEffect, useState } from "react";
 import { discoverSkills, type Skill } from "./helpers/skill-discovery";
 import { getAllSkillFolders, ensureDefaultSkillFolder, getDefaultSkillFolder } from "./config";
@@ -126,7 +124,7 @@ export default function ListSkillsCommand() {
                   <Action
                     title="Open Skill Folder"
                     onAction={() => {
-                      execSync(`open "${skill.folder}"`);
+                      Action.ShowInFinder({ path: skill.folder });
                     }}
                   />
                   <Action

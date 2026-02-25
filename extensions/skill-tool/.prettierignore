@@ -1,0 +1,11 @@
+src/metadata
+**/*.png
+**/*.jpg
+**/*.jpeg
+**/*.gif
+**/*.ico
+**/*.bmp
+**/*.webp
+node_modules
+dist
+.git

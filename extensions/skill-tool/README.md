@@ -71,6 +71,7 @@ Skills are customizable workflows that teach AI models (like Claude) how to perf
 - **Prerequisites** and dependencies
 
 Skills enable AI to execute tasks in a repeatable, standardized manner. Skills can be:
+
 - **Claude Skills** - Optimized for Claude from Anthropic
 - **Tool Skills** - Integration skills for various SaaS platforms (via ComposioHQ)
 - **Custom Skills** - Your own skills in any GitHub repository
