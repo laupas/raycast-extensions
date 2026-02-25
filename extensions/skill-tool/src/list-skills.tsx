@@ -74,7 +74,7 @@ export default function ListSkillsCommand() {
 
     const skillPath = path.dirname(skill.filePath);
     try {
-      fs.rmSync(skillPath, { recursive: true, force: true });
+      await trash(skillPath);
       await showToast({
         style: Toast.Style.Success,
         title: "Deleted",
