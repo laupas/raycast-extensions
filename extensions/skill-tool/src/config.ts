@@ -2,11 +2,7 @@ import * as fs from "fs";
 import * as path from "path";
 import { getPreferenceValues } from "@raycast/api";
 
-export interface Preferences {
-  skillFolders: string;
-  skillRepositories?: string;
-  githubToken?: string;
-}
+// Preferences interface is auto-generated in raycast-env.d.ts - no need to define manually
 
 export interface SkillConfig {
   folders: string[];
