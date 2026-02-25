@@ -1,5 +1,45 @@
 # Music Assistant Controls Changelog
 
+## [Player Grouping and Menu Bar Management] - 2026-02-24
+
+### ✨ New Features
+
+- **Manage player groups command** - Tree-view interface to create, modify, and disband player sync groups
+- **Group members in menu bar** - See and manage group members directly from the menu bar with add (+) and remove (−) actions
+- **Playback state indicators** - Visual play/pause icons showing player status
+- **Context-aware actions** - Action menus adapt based on player status (standalone, member, or leader)
+
+### 🎨 UI/UX Enhancements
+
+- **Album art display** - See album covers across all commands with rounded icons next to player names and song titles:
+  - Menu bar shows album art for active and inactive players
+  - Set Active Player command displays album art for each available player
+  - Manage Player Groups command shows album art for group leaders and standalone players
+- **Streamlined menu bar layout** - Active player section at top with other players listed below for quick switching
+
+## [Windows Support Added] - 2026-02-24
+
+### ✨ New Features
+
+- **Cross-Platform Availability** - Extension is now available on both macOS and Windows Raycast.
+
+### 📝 Platform Support Notes
+
+- All commands (Toggle, Next Song, Volume Up/Down, Set Volume, Set Active Player) are available on Windows
+- Menu bar command is macOS-only as the feature isn't supported on Windows Raycast
+
+## [Volume Step Controls] - 2026-02-23
+
+### ✨ New Features
+
+- **Volume Up/Down Commands** - Increase or decrease volume on the active player using Music Assistant's native step controls
+- **Toast Feedback** - All no-view commands now provide feedback including volume transitions and the current playing song
+
+### 🎯 Benefits
+
+- Quick volume adjustment without opening the menu bar
+- Bind to media control keys for optimal experience
+
 ## [REST API Migration] - 2026-01-30
 
 ### 🔧 Technical Improvements
